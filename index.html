@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#218085">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Color Wheel">
+    <link rel="manifest" href="data:application/json;base64,ewogICJuYW1lIjogIkNvbG9yIFRoZW9yeSAmIFBzeWNob2xvZ3kgQ2hlYXQgU2hlZXQiLAogICJzaG9ydF9uYW1lIjogIkNvbG9yIFdoZWVsIiwKICAic3RhcnRfdXJsIjogIi8iLAogICJkaXNwbGF5IjogInN0YW5kYWxvbmUiLAogICJiYWNrZ3JvdW5kX2NvbG9yIjogIiNmY2ZjZjkiLAogICJ0aGVtZV9jb2xvciI6ICIjMjE4MDg1IiwKICAiaWNvbnMiOiBbCiAgICB7CiAgICAgICJzcmMiOiAiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxOTInIGhlaWdodD0nMTkyJyB2aWV3Qm94PScwIDAgMTkyIDE5Mic%2BJTNDZGVMCZ%2FJTNDJTJGZGVmcyUzRSUzQ2NpcmNsZSBjeD0nOTYnIGN5PSc5Nicgcj0nODAnIGZpbGw9JyUyMzIxODA4NScvJTNFJTNDY2lyY2xlIGN4PSc5NicgY3k9Jzk2JyByPSc2MCcgZmlsbD0nJTIzZmNmY2Y5Jy8lM0UlM0NwYXRoIGQ9J00gOTYgMzYgQSA2MCA2MCAwIDAgMSAxNTYgOTYnIGZpbGw9JyUyM2ZmMDAwMCcvJTNFJTNDcGF0aCBkPSdNIDE1NiA5NiBBIDYwIDYwIDAgMCAxIDk2IDE1NicgZmlsbD0nJTIzMDBmZjAwJy8lM0UlM0NwYXRoIGQ9J00gOTYgMTU2IEEgNjAgNjAgMCAwIDEgMzYgOTYnIGZpbGw9JyUyMzAwMDBmZicvJTNFJTNDcGF0aCBkPSdNIDM2IDk2IEEgNjAgNjAgMCAwIDEgOTYgMzYnIGZpbGw9JyUyM2ZmZmYwMCcvJTNFJTNDL3N2ZyUzRQ==",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='512' height='512' viewBox='0 0 512 512'%3E%3Cdefs%3E%3C/defs%3E%3Ccircle cx='256' cy='256' r='200' fill='%23218085'/%3E%3Ccircle cx='256' cy='256' r='150' fill='%23fcfcf9'/%3E%3Cpath d='M 256 106 A 150 150 0 0 1 406 256' fill='%23ff0000'/%3E%3Cpath d='M 406 256 A 150 150 0 0 1 256 406' fill='%2300ff00'/%3E%3Cpath d='M 256 406 A 150 150 0 0 1 106 256' fill='%230000ff'/%3E%3Cpath d='M 106 256 A 150 150 0 0 1 256 106' fill='%23ffff00'/%3E%3C/svg%3E",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Ccircle cx='90' cy='90' r='75' fill='%23218085'/%3E%3Ccircle cx='90' cy='90' r='56' fill='%23fcfcf9'/%3E%3Cpath d='M 90 34 A 56 56 0 0 1 146 90' fill='%23ff0000'/%3E%3Cpath d='M 146 90 A 56 56 0 0 1 90 146' fill='%2300ff00'/%3E%3Cpath d='M 90 146 A 56 56 0 0 1 34 90' fill='%230000ff'/%3E%3Cpath d='M 34 90 A 56 56 0 0 1 90 34' fill='%23ffff00'/%3E%3C/svg%3E">
+    <title>Color Theory & Psychology Cheat Sheet</title>
+    <style>
+        :root {
+            --color-background: #fcfcf9;
+            --color-surface: #fffffd;
+            --color-text: #13343b;
+            --color-text-secondary: #626c71;
+            --color-primary: #218085;
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-card-border: rgba(94, 82, 64, 0.12);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-background: #1f2121;
+                --color-surface: #262828;
+                --color-text: #f5f5f5;
+                --color-text-secondary: rgba(167, 169, 169, 0.7);
+                --color-primary: #32b8c6;
+                --color-border: rgba(119, 124, 124, 0.3);
+                --color-card-border: rgba(119, 124, 124, 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-background);
+            color: var(--color-text);
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .subtitle {
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .harmony-btn {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--color-border);
+            background: var(--color-surface);
+            color: var(--color-text);
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+        }
+
+        .harmony-btn:hover {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .harmony-btn.active {
+            background: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        #wheelContainer {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            aspect-ratio: 1;
+        }
+
+        #colorWheel {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            cursor: crosshair;
+        }
+
+        .harmony-info {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(33, 128, 141, 0.1);
+            border-radius: 8px;
+            border-left: 3px solid var(--color-primary);
+        }
+
+        .harmony-info h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .harmony-info p {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .color-item {
+            padding: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--color-border);
+        }
+
+        .color-sample {
+            width: 100%;
+            height: 60px;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .color-moods {
+            font-size: 0.8rem;
+            color: var(--color-text-secondary);
+            line-height: 1.5;
+        }
+
+        .mood-tag {
+            display: inline-block;
+            padding: 0.15rem 0.5rem;
+            background: rgba(33, 128, 141, 0.15);
+            border-radius: 4px;
+            margin: 0.15rem;
+            font-size: 0.75rem;
+        }
+
+        .selected-colors {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .selected-color-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .selected-color-box:hover {
+            transform: scale(1.05);
+        }
+
+        .hex-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.7rem;
+            color: var(--color-text-secondary);
+            white-space: nowrap;
+        }
+
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--color-primary);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            z-index: 1000;
+            max-width: 90%;
+        }
+
+            background: white;
+            color: var(--color-primary);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .offline-indicator {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(33, 128, 141, 0.9);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-indicator" id="offlineIndicator">📵 Offline Mode</div>
+    <div id="installBanner">
+        <span>📱 Install this app for offline use!</span>
+        <button id="installBtn">Install</button>
+        <button id="dismissBtn" style="background: transparent; color: white;">Dismiss</button>
+    </div>
+    <div class="container">
+        <h1>Color Theory & Psychology Cheat Sheet</h1>
+        <p class="subtitle">Interactive color wheel with harmonies and emotional meanings</p>
+
+        <div class="controls">
+            <button class="harmony-btn active" data-harmony="none">Color Wheel</button>
+            <button class="harmony-btn" data-harmony="complementary">Complementary</button>
+            <button class="harmony-btn" data-harmony="analogous">Analogous</button>
+            <button class="harmony-btn" data-harmony="triadic">Triadic</button>
+            <button class="harmony-btn" data-harmony="split">Split-Complementary</button>
+            <button class="harmony-btn" data-harmony="tetradic">Tetradic</button>
+            <div style="display: flex; gap: 0.5rem; align-items: center;">
+                <input type="text" id="colorInput" placeholder="#FF5733 or rgb(255,87,51)" 
+                       style="padding: 0.5rem; border: 1px solid var(--color-border); background: var(--color-surface); 
+                              color: var(--color-text); border-radius: 8px; font-size: 0.875rem; min-width: 200px;">
+                <button id="colorInputBtn" class="harmony-btn" style="padding: 0.5rem 1rem;">Find Color</button>
+            </div>
+        </div>
+
+        <div class="main-grid">
+            <div class="card">
+                <h2>Interactive Color Wheel</h2>
+                <div id="wheelContainer">
+                    <canvas id="colorWheel"></canvas>
+                </div>
+                <div id="selectedColorsDisplay" class="selected-colors"></div>
+                <div id="harmonyInfo" class="harmony-info" style="display: none;"></div>
+            </div>
+
+            <div class="card">
+                <h2>Selected Colors Psychology</h2>
+                <div class="color-grid" id="colorPsychology"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('colorWheel');
+        const ctx = canvas.getContext('2d');
+        
+        const colorData = [
+            { name: 'Red', hue: 0, moods: ['Passion', 'Energy', 'Excitement', 'Love', 'Danger', 'Strength', 'Power'] },
+            { name: 'Orange', hue: 30, moods: ['Warmth', 'Enthusiasm', 'Creativity', 'Friendly', 'Optimism', 'Happy'] },
+            { name: 'Yellow', hue: 60, moods: ['Joy', 'Happiness', 'Intellect', 'Cheerful', 'Optimism', 'Caution'] },
+            { name: 'Yellow-Green', hue: 90, moods: ['Growth', 'Freshness', 'Renewal', 'Nature', 'Vitality'] },
+            { name: 'Green', hue: 120, moods: ['Harmony', 'Nature', 'Growth', 'Balance', 'Calm', 'Freshness'] },
+            { name: 'Cyan', hue: 180, moods: ['Tranquility', 'Clarity', 'Communication', 'Peace', 'Healing'] },
+            { name: 'Blue', hue: 240, moods: ['Trust', 'Loyalty', 'Calm', 'Peace', 'Wisdom', 'Professionalism'] },
+            { name: 'Purple', hue: 270, moods: ['Creativity', 'Spirituality', 'Luxury', 'Mystery', 'Nobility'] },
+            { name: 'Magenta', hue: 300, moods: ['Imagination', 'Innovation', 'Compassion', 'Transformation'] },
+            { name: 'Pink', hue: 330, moods: ['Love', 'Tenderness', 'Playful', 'Youthful', 'Fresh', 'Feminine'] }
+        ];
+
+        const harmonyDescriptions = {
+            complementary: {
+                title: 'Complementary Colors',
+                description: 'Colors opposite on the wheel. Creates high contrast and vibrant combinations. Perfect for making elements stand out.'
+            },
+            analogous: {
+                title: 'Analogous Colors',
+                description: 'Colors next to each other on the wheel. Creates harmonious, serene combinations often found in nature.'
+            },
+            triadic: {
+                title: 'Triadic Colors',
+                description: 'Three colors evenly spaced around the wheel. Creates vibrant, balanced combinations with high contrast.'
+            },
+            split: {
+                title: 'Split-Complementary Colors',
+                description: 'Base color plus two colors adjacent to its complement. Offers high contrast with less tension than complementary.'
+            },
+            tetradic: {
+                title: 'Tetradic Colors',
+                description: 'Two pairs of complementary colors forming a rectangle. Rich, versatile scheme with plenty of variety.'
+            }
+        };
+
+        let currentHarmony = 'none';
+        let selectedHue = 0;
+
+        function resizeCanvas() {
+            const container = document.getElementById('wheelContainer');
+            const size = Math.min(container.offsetWidth, 400);
+            canvas.width = size;
+            canvas.height = size;
+            drawColorWheel();
+        }
+
+        function drawColorWheel() {
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = Math.min(centerX, centerY) - 10;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw color wheel
+            for (let angle = 0; angle < 360; angle += 1) {
+                const startAngle = (angle - 0.5) * Math.PI / 180;
+                const endAngle = (angle + 0.5) * Math.PI / 180;
+
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.closePath();
+                ctx.fillStyle = `hsl(${angle}, 100%, 50%)`;
+                ctx.fill();
+            }
+
+            // Draw white center
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, radius * 0.3, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            // Draw harmony indicators
+            if (currentHarmony !== 'none') {
+                const hues = getHarmonyHues(selectedHue, currentHarmony);
+                hues.forEach(hue => {
+                    drawIndicator(centerX, centerY, radius, hue);
+                });
+            }
+        }
+
+        function drawIndicator(centerX, centerY, radius, hue) {
+            const angle = hue * Math.PI / 180;
+            const x = centerX + Math.cos(angle) * radius * 0.85;
+            const y = centerY + Math.sin(angle) * radius * 0.85;
+
+            ctx.beginPath();
+            ctx.arc(x, y, 8, 0, Math.PI * 2);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+            ctx.strokeStyle = '#333';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(x, y, 5, 0, Math.PI * 2);
+            ctx.fillStyle = `hsl(${hue}, 100%, 50%)`;
+            ctx.fill();
+        }
+
+        function getHarmonyHues(baseHue, harmony) {
+            switch (harmony) {
+                case 'complementary':
+                    return [baseHue, (baseHue + 180) % 360];
+                case 'analogous':
+                    return [baseHue, (baseHue + 30) % 360, (baseHue + 60) % 360];
+                case 'triadic':
+                    return [baseHue, (baseHue + 120) % 360, (baseHue + 240) % 360];
+                case 'split':
+                    return [baseHue, (baseHue + 150) % 360, (baseHue + 210) % 360];
+                case 'tetradic':
+                    return [baseHue, (baseHue + 90) % 360, (baseHue + 180) % 360, (baseHue + 270) % 360];
+                default:
+                    return [baseHue];
+            }
+        }
+
+        function updateSelectedColors() {
+            const display = document.getElementById('selectedColorsDisplay');
+            if (currentHarmony === 'none') {
+                display.innerHTML = '';
+                renderColorPsychology();
+                return;
+            }
+
+            const hues = getHarmonyHues(selectedHue, currentHarmony);
+            display.innerHTML = hues.map(hue => {
+                const hex = hslToHex(hue, 100, 50);
+                return `<div class="selected-color-box" style="background-color: hsl(${hue}, 100%, 50%);">
+                    <span class="hex-label">${hex}</span>
+                </div>`;
+            }).join('');
+            
+            renderColorPsychology(hues);
+        }
+
+        function hslToHex(h, s, l) {
+            l /= 100;
+            const a = s * Math.min(l, 1 - l) / 100;
+            const f = n => {
+                const k = (n + h / 30) % 12;
+                const color = l - a * Math.max(Math.min(k - 3, 9 - k, 1), -1);
+                return Math.round(255 * color).toString(16).padStart(2, '0');
+            };
+            return `#${f(0)}${f(8)}${f(4)}`;
+        }
+
+        function updateHarmonyInfo() {
+            const infoDiv = document.getElementById('harmonyInfo');
+            if (currentHarmony === 'none') {
+                infoDiv.style.display = 'none';
+                return;
+            }
+
+            const info = harmonyDescriptions[currentHarmony];
+            infoDiv.style.display = 'block';
+            infoDiv.innerHTML = `<h3>${info.title}</h3><p>${info.description}</p>`;
+        }
+
+        function renderColorPsychology(selectedHues = null) {
+            const container = document.getElementById('colorPsychology');
+            
+            if (!selectedHues) {
+                // Show all colors when nothing is selected
+                container.innerHTML = colorData.map(color => {
+                    return `
+                        <div class="color-item">
+                            <div class="color-sample" style="background-color: hsl(${color.hue}, 80%, 55%);"></div>
+                            <div class="color-name">${color.name}</div>
+                            <div class="color-moods">
+                                ${color.moods.map(mood => `<span class="mood-tag">${mood}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } else {
+                // Show only colors matching selected hues
+                const matchedColors = selectedHues.map(hue => {
+                    // Find closest color in our data
+                    let closest = colorData[0];
+                    let minDiff = Math.abs(hue - colorData[0].hue);
+                    
+                    colorData.forEach(color => {
+                        const diff = Math.min(
+                            Math.abs(hue - color.hue),
+                            Math.abs(hue - color.hue + 360),
+                            Math.abs(hue - color.hue - 360)
+                        );
+                        if (diff < minDiff) {
+                            minDiff = diff;
+                            closest = color;
+                        }
+                    });
+                    
+                    return { ...closest, actualHue: hue };
+                });
+                
+                container.innerHTML = matchedColors.map(color => {
+                    return `
+                        <div class="color-item">
+                            <div class="color-sample" style="background-color: hsl(${color.actualHue}, 80%, 55%);"></div>
+                            <div class="color-name">${color.name}</div>
+                            <div class="color-moods">
+                                ${color.moods.map(mood => `<span class="mood-tag">${mood}</span>`).join('')}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
+
+        // Event listeners
+        document.querySelectorAll('.harmony-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.harmony-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                currentHarmony = e.target.dataset.harmony;
+                drawColorWheel();
+                updateSelectedColors();
+                updateHarmonyInfo();
+            });
+        });
+
+        let isDragging = false;
+
+        function handleColorSelection(e) {
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            
+            const angle = Math.atan2(y - centerY, x - centerX);
+            selectedHue = ((angle * 180 / Math.PI + 360) % 360);
+            
+            drawColorWheel();
+            updateSelectedColors();
+        }
+
+        canvas.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            handleColorSelection(e);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                handleColorSelection(e);
+            }
+        });
+
+        canvas.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        canvas.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+
+        canvas.addEventListener('click', handleColorSelection);
+
+        window.addEventListener('resize', resizeCanvas);
+
+        // Color input handler
+        document.getElementById('colorInputBtn').addEventListener('click', () => {
+            const input = document.getElementById('colorInput').value.trim();
+            const hue = parseColorToHue(input);
+            if (hue !== null) {
+                selectedHue = hue;
+                drawColorWheel();
+                updateSelectedColors();
+            } else {
+                alert('Invalid color format. Use hex (#FF5733), rgb (rgb(255,87,51)), or hsl (hsl(9,100%,60%))');
+            }
+        });
+
+        document.getElementById('colorInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                document.getElementById('colorInputBtn').click();
+            }
+        });
+
+        function parseColorToHue(colorString) {
+            colorString = colorString.toLowerCase().trim();
+            
+            // Hex format
+            if (colorString.startsWith('#')) {
+                const hex = colorString.slice(1);
+                if (hex.length === 3 || hex.length === 6) {
+                    const r = parseInt(hex.length === 3 ? hex[0] + hex[0] : hex.slice(0, 2), 16);
+                    const g = parseInt(hex.length === 3 ? hex[1] + hex[1] : hex.slice(2, 4), 16);
+                    const b = parseInt(hex.length === 3 ? hex[2] + hex[2] : hex.slice(4, 6), 16);
+                    return rgbToHue(r, g, b);
+                }
+            }
+            
+            // RGB format
+            const rgbMatch = colorString.match(/rgb\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)/);
+            if (rgbMatch) {
+                return rgbToHue(parseInt(rgbMatch[1]), parseInt(rgbMatch[2]), parseInt(rgbMatch[3]));
+            }
+            
+            // HSL format
+            const hslMatch = colorString.match(/hsl\s*\(\s*(\d+)\s*,\s*(\d+)%?\s*,\s*(\d+)%?\s*\)/);
+            if (hslMatch) {
+                return parseInt(hslMatch[1]) % 360;
+            }
+            
+            return null;
+        }
+
+        function rgbToHue(r, g, b) {
+            r /= 255;
+            g /= 255;
+            b /= 255;
+            
+            const max = Math.max(r, g, b);
+            const min = Math.min(r, g, b);
+            const delta = max - min;
+            
+            if (delta === 0) return 0;
+            
+            let hue;
+            if (max === r) {
+                hue = ((g - b) / delta) % 6;
+            } else if (max === g) {
+                hue = (b - r) / delta + 2;
+            } else {
+                hue = (r - g) / delta + 4;
+            }
+            
+            hue = Math.round(hue * 60);
+            if (hue < 0) hue += 360;
+            
+            return hue;
+        }
+
+        // Initialize
+        resizeCanvas();
+        renderColorPsychology();
+
+        // Service Worker Registration (PWA Support)
+        if ('serviceWorker' in navigator) {
+            const swCode = `
+                const CACHE_NAME = 'color-wheel-v2';
+
+                self.addEventListener('install', (event) => {
+                    console.log('Service Worker installing...');
+                    event.waitUntil(
+                        caches.open(CACHE_NAME).then((cache) => {
+                            console.log('Cache opened, caching app shell');
+                            // Cache the current page immediately on install
+                            return cache.add(self.registration.scope);
+                        })
+                    );
+                    self.skipWaiting();
+                });
+
+                self.addEventListener('fetch', (event) => {
+                    // Cache-first strategy for offline-first behavior
+                    event.respondWith(
+                        caches.match(event.request).then((cachedResponse) => {
+                            if (cachedResponse) {
+                                console.log('Serving from cache:', event.request.url);
+                                return cachedResponse;
+                            }
+                            
+                            console.log('Fetching from network:', event.request.url);
+                            return fetch(event.request).then((fetchResponse) => {
+                                // Don't cache non-GET requests or external resources
+                                if (event.request.method !== 'GET' || !event.request.url.startsWith(self.location.origin)) {
+                                    return fetchResponse;
+                                }
+                                
+                                return caches.open(CACHE_NAME).then((cache) => {
+                                    cache.put(event.request, fetchResponse.clone());
+                                    return fetchResponse;
+                                });
+                            }).catch(() => {
+                                // Network failed, return cached version if available
+                                console.log('Network failed, returning cached version');
+                                return caches.match(event.request);
+                            });
+                        })
+                    );
+                });
+
+                self.addEventListener('activate', (event) => {
+                    console.log('Service Worker activating...');
+                    event.waitUntil(
+                        caches.keys().then((cacheNames) => {
+                            return Promise.all(
+                                cacheNames.map((cacheName) => {
+                                    if (cacheName !== CACHE_NAME) {
+                                        console.log('Deleting old cache:', cacheName);
+                                        return caches.delete(cacheName);
+                                    }
+                                })
+                            );
+                        })
+                    );
+                    self.clients.claim();
+                });
+            `;
+
+            const blob = new Blob([swCode], { type: 'application/javascript' });
+            const swUrl = URL.createObjectURL(blob);
+
+            navigator.serviceWorker.register(swUrl).then((registration) => {
+                console.log('✅ PWA Service Worker registered!');
+            }).catch((error) => {
+                console.log('Service Worker registration failed:', error);
+            });
+        }
+
+        // Install prompt
+        let deferredPrompt;
+        const installBanner = document.getElementById('installBanner');
+        const installBtn = document.getElementById('installBtn');
+        const dismissBtn = document.getElementById('dismissBtn');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.style.display = 'flex';
+            console.log('✅ Install prompt available!');
+        });
+
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                const { outcome } = await deferredPrompt.userChoice;
+                console.log(`User response: ${outcome}`);
+                if (outcome === 'accepted') {
+                    console.log('✅ App installed!');
+                }
+                deferredPrompt = null;
+                installBanner.style.display = 'none';
+            } else {
+                // Fallback - show manual instructions
+                showManualInstructions();
+            }
+        });
+
+        dismissBtn.addEventListener('click', () => {
+            installBanner.style.display = 'none';
+        });
+
+        function showManualInstructions() {
+            const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+            const isAndroid = /Android/.test(navigator.userAgent);
+            
+            let instructions = '';
+            if (isIOS) {
+                instructions = '📱 On iPhone:\n\n1. Tap the Share button (square with arrow) at the bottom\n2. Scroll down and tap "Add to Home Screen"\n3. Tap "Add" in the top right\n\nThe Color Wheel icon will appear on your home screen!';
+            } else if (isAndroid) {
+                instructions = '📱 On Android:\n\n1. Tap the three dots menu (⋮) in the top right\n2. Tap "Add to Home screen" or "Install app"\n3. Tap "Install" in the popup\n\nThe Color Wheel icon will appear on your home screen!';
+            } else {
+                instructions = '📱 To install:\n\nDesktop: Look for the install icon in your browser\'s address bar\n\nMobile: Use your browser\'s "Add to Home Screen" option from the menu';
+            }
+            
+            alert(instructions);
+        }
+
+        // Show install banner after 3 seconds if not already installed
+        setTimeout(() => {
+            if (!window.matchMedia('(display-mode: standalone)').matches && !deferredPrompt) {
+                // Not installed and no prompt available - show banner with manual option
+                installBanner.style.display = 'flex';
+                installBtn.textContent = 'How to Install';
+            }
+        }, 3000);
+
+        // Offline indicator
+        const offlineIndicator = document.getElementById('offlineIndicator');
+        
+        window.addEventListener('online', () => {
+            offlineIndicator.style.display = 'none';
+        });
+
+        window.addEventListener('offline', () => {
+            offlineIndicator.style.display = 'block';
+        });
+
+        if (!navigator.onLine) {
+            offlineIndicator.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+
